@@ -92,11 +92,6 @@ public class ClickOnArea : MonoBehaviour
             
                         areaTitleText.text = areas[areasKey][0];
                         areaDescriptionText.text = areas[areasKey][1];
-                        if (areas[areasKey][2] != "N/A")
-                        {
-                            areaDescriptionText.text += string.Concat("\n\nParent region: ",
-                                areas[areasKey][2].ToLower());
-                        }
 
                         GetComponentInParent<UIManager>().ResetAreasPanel(false);
                     }
@@ -110,9 +105,24 @@ public class ClickOnArea : MonoBehaviour
             {
                 if (bitString[bit] == '1')
                 {
+                    string areasKey = (1 << bitString.Length - 1).ToString();
+
                     material.SetTexture("_EmissionMap",
                         maps[(1 << bitString.Length - 1 - bit).ToString()]);
                     SetEmissionColor(bit == 0 ? (byte) emissionIntensity : (byte) 0x7F);
+                    if (bit == 0)
+                    {
+                        SetEmissionColor((byte) emissionIntensity);
+
+                        areaDescriptionText.text = areas[areasKey][1];
+                    }
+                    else
+                    {
+                        SetEmissionColor((byte) 0x7F);
+
+                        areaDescriptionText.text = string.Concat(areas[areasKey][1],
+                            "\n\nParent region: ", areas[areasKey][2].ToLower());
+                    }
 
                     bitPosition = bit;
                     break;
@@ -159,6 +169,6 @@ public class ClickOnArea : MonoBehaviour
         {
             bitString = "";
         }
-        material.SetColor("_EmissionColor", new Color32(intensity, intensity, intensity, 0));
+        material.SetColor("_EmissionColor", new Color32(intensity, 0, 0, 0));
     }
 }
