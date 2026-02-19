@@ -8,6 +8,7 @@ public class TouchControl : MonoBehaviour
     [SerializeField] GameObject controlsPanel;
 
     [SerializeField] float minOrthographicSize;
+    [SerializeField] float maxOrthographicSize;
     [SerializeField] float scale;
 
     Vector3 startCameraPosition;
@@ -52,9 +53,9 @@ public class TouchControl : MonoBehaviour
                     {
                         Camera.main.orthographicSize = minOrthographicSize;
                     }
-                    else if (Camera.main.orthographicSize > startOrthographicSize)
+                    else if (Camera.main.orthographicSize > maxOrthographicSize)
                     {
-                        Camera.main.orthographicSize = startOrthographicSize;
+                        Camera.main.orthographicSize = maxOrthographicSize;
                     }
                 }
                 break;
