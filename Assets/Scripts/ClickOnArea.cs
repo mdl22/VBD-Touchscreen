@@ -71,8 +71,6 @@ public class ClickOnArea : MonoBehaviour
                 Color32 pixelColour =
                     mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
 
-                //int maxValue = pixelColour.g > pixelColour.r ? pixelColour.g : pixelColour.r;
-                //maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;
                 bitString = Convert.ToString(pixelColour.g, 2);     // removes leading zeroes
 
                 if (bitString.Split('1').Length == 1)   // no emission map
