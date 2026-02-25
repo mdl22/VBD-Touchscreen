@@ -156,7 +156,10 @@ public class ClickOnArea : MonoBehaviour
                                   fields[4]});  // parent region
                 maps.Add(fields[0], emissionMaps[maps.Count]);
 
-                panelListText.text += string.Concat(fields[2], "\n\n");
+                if (Char.IsLetter(fields[2][0]))
+                {
+                    panelListText.text += string.Concat(fields[2], "\n\n");
+                }
             }
         }
     }
