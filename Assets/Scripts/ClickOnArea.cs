@@ -68,8 +68,8 @@ public class ClickOnArea : MonoBehaviour
             bool isNotOverUI = !EventSystem.current.IsPointerOverGameObject();
             if (isNotOverUI && Physics.Raycast(ray, out RaycastHit hit))
             {
-                Color32 pixelColour =
-                    mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
+                Color32 pixelColour = mask.GetPixel((int) (hit.textureCoord.x * mask.width),
+                    (int) (hit.textureCoord.y * mask.height));
 
                 bitString = Convert.ToString(pixelColour.g, 2);     // removes leading zeroes
 
