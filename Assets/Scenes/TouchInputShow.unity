@@ -5482,7 +5482,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1010161045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25ab4fd76a8aabaaba05a77e3d6961c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 74dad9f5ce4131729b6a3ec84081c06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controlsPanel: {fileID: 969302283}
@@ -7272,12 +7272,12 @@ MonoBehaviour:
   mask: {fileID: 2800000, guid: b487549471898918284ca668736a13cd, type: 3}
   emissionMaps:
   - {fileID: 2800000, guid: 05a294ecf165ddfae98b59d6a53a9cdc, type: 3}
-  - {fileID: 2800000, guid: 1cecaf374897f3ccab4cd5c40714d3d6, type: 3}
+  - {fileID: 0}
   - {fileID: 2800000, guid: 0d60418cf05b0dffb90cc0d5b8c3dbad, type: 3}
   - {fileID: 2800000, guid: 53d1ea9e49ee95c09b3d524a899851dc, type: 3}
-  - {fileID: 2800000, guid: 67d612f886cb1f86e88921c3237806d6, type: 3}
+  - {fileID: 0}
   - {fileID: 2800000, guid: ab26bc459fb05279fbeb31d1c4dab2c7, type: 3}
-  - {fileID: 2800000, guid: 7ebd1589d0f9fcb96aea6c1654319b99, type: 3}
+  - {fileID: 0}
   maskTable: {fileID: 4900000, guid: a8387f2b61025f8cb8926c3fc1a0ca0c, type: 3}
   flashPeriod: 2
 --- !u!64 &1247220777
