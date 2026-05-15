@@ -10,15 +10,12 @@ using UnityEditor;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject modelButtonsParent;
-    [SerializeField] GameObject areaButtonsParent;
 
     [SerializeField] Button controlsButton;
     [SerializeField] Button controlsExitButton;
     [SerializeField] Button resetButton;
     [SerializeField] Button areasButton;
     [SerializeField] Button backButton;
-    [SerializeField] Button showButton;
-    [SerializeField] Button findButton;
 
     [SerializeField] Image controlsPanel;
     [SerializeField] Image areasPanel;
@@ -52,8 +49,7 @@ public class UIManager : MonoBehaviour
         {
             button.onClick.AddListener(() => { ActivateModel(button, true); });
         }
-        // on exit, activate WholeBrain model, make WholeBrain button non-interactable,
-        // disable mouse input and enable touch input
+        // on exit, activate WholeBrain model, make WholeBrain button non-interactable
         controlsExitButton.GetComponent<Button>().onClick.AddListener(() =>
             { ActivateModel(modelButtons[0], false); });
 
@@ -63,9 +59,6 @@ public class UIManager : MonoBehaviour
         controlsExitButton.GetComponent<Button>().onClick.AddListener(ResetModels);
         resetButton.GetComponent<Button>().onClick.AddListener(ResetModels);
 
-        showButton.onClick.AddListener(() => { ActivateShowPanel(true); });
-        findButton.onClick.AddListener(() => { ActivateShowPanel(false); });
-
         startPosition = transform.position;
         startRotation = transform.rotation;
 
@@ -73,9 +66,9 @@ public class UIManager : MonoBehaviour
         startOrthographicSize = Camera.main.orthographicSize;
     }
 
-    void ActivateModel(Button clicked, bool keepPanelsOpen)
+    void ActivateModel(Button clickedButton, bool keepPanelsOpen)
     {
-        string clickedName = clicked.name.Split()[0];
+        string clickedName = clickedButton.name.Split()[0];
 
         foreach (Button button in modelButtons)
         {
@@ -124,13 +117,6 @@ public class UIManager : MonoBehaviour
         areaDescriptionText.gameObject.SetActive(!active);
 
         backButton.gameObject.SetActive(!active);
-        showButton.gameObject.SetActive(active);
-        findButton.gameObject.SetActive(false);
-        foreach (Button button in areaButtonsParent.GetComponentsInChildren<Button>())
-        {
-            button.gameObject.SetActive(false);
-            button.interactable = true;
-         }
     }
 
     public void ResetModels()
@@ -142,25 +128,6 @@ public class UIManager : MonoBehaviour
         Camera.main.orthographicSize = startOrthographicSize;
     }
 
-    void ActivateShowPanel(bool show)
-    {
-        panelTitleText.gameObject.SetActive(!show);
-        panelListText.gameObject.SetActive(!show);
-
-        areaTitleText.gameObject.SetActive(false);
-        areaDescriptionText.gameObject.SetActive(false);
-
-        backButton.gameObject.SetActive(!show);
-        showButton.gameObject.SetActive(!show);
-        findButton.gameObject.SetActive(show);
-        areaButtonsParent.gameObject.SetActive(show);
-
-        foreach (Button button in areaButtonsParent.GetComponentsInChildren<Button>())
-        {
-            button.interactable = true;
-        }
-    }
-	
     public void Exit()
     {
 #if UNITY_EDITOR
