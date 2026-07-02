@@ -11270,7 +11270,7 @@ GameObject:
   - component: {fileID: 2090540045}
   - component: {fileID: 2090540044}
   m_Layer: 5
-  m_Name: MouseFunction Text
+  m_Name: TouchFunction Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11316,12 +11316,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rotate with left button
+  m_text: '1-finger drag to rotate
 
-    Zoom with middle button or by rotating scroll
-    wheel
+    2-finger pinch to zoom
 
-    Position with right button'
+    3-finger drag
+    to move'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
